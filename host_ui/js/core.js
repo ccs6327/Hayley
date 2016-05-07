@@ -1,0 +1,1 @@
+angular.module('hayley', ['hayleyController', 'hayleyService', 'ui.bootstrap']);
