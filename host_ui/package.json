@@ -1,0 +1,15 @@
+{
+  "name"         : "hayley",
+  "version"      : "0.0.0",
+  "description"  : "Hayley - your personal RSVP manager",
+  "main"         : "server.js",
+  "author"       : "Hayley",
+  "dependencies" : {
+    "express"    : "~4.7.2",
+    "mysql"         : "~2.10.2",
+    "morgan"          : "~1.1.1",
+    "body-parser"     : "~1.4.3",
+    "method-override" : "~2.1.1",
+    "angular-ui-bootstrap"  : "~1.2.5"
+    }
+}
