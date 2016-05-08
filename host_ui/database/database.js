@@ -18,17 +18,39 @@ module.exports = {
 		con.query("select * from users", function(err, rows) {
 			if (err) throw err;
 
-			console.log(rows);
+			console.log("get users success.");
 		})
 	},
 
 	addUser: function (name, phone_no, callback) {
-		var query = "INSERT INTO users (user, phone) values (";
+		var addUserQuery = "INSERT INTO users (user, phone) values (";
 
-		query = query + "'" + name + "', '" + phone_no + "');";
-		console.log(query);
-		con.query(query, function (err, rows) {
+		addUserQuery = addUserQuery + "'" + name + "', '" + phone_no + "');";
+		
+		con.query(addUserQuery, function (err, rows) {
 			if (err) throw err;
+
+			callback("add user success.");
+		})
+	},
+
+	getResponse: function (callback) {
+		var responseQuery = "select r.id response_id \
+				, u.id user_id \
+				, u.user username \
+			    , u.phone phone_no \
+			    , q.id question_id \
+			    , q.question question \
+			    , r.response \
+			from responses r  \
+			left join users u on u.id = r.user_id \
+			left join questions q on q.id = r.question_id \
+			order by q.id desc, r.id desc";
+
+		con.query(responseQuery, function (err, rows) {
+			if (err) throw err;
+
+			console.log("get response success.");
 
 			callback(rows);
 		})

@@ -26,10 +26,15 @@ app.post('/apis/addUser', function (req, res) {
 	})
 })
 
+app.get('/apis/getResponse', function (req, res) {
+	db.getResponse(function (data) {
+		res.send(data);
+	})
+})
+
 
 // application
 app.get('*', function (req, res) {
-	db.listUser();
 	res.sendfile(__dirname + '/pages/index.html')
 })
 
