@@ -45,10 +45,10 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 					$scope.responses.push(newRes);
 				}
 				var pos = $scope.qnIDs.indexOf(r.question_id);
-				if (r.response == 0) {
-					$scope.responses[pos]['yes_users'].push(r.username);
+				if (r.response != 0) {
+					$scope.responses[pos]['yes_users'].unshift(r.username);
 				} else {
-					$scope.responses[pos]['no_users'].push(r.username);
+					$scope.responses[pos]['no_users'].unshift(r.username);
 				}
 			}
 			console.log($scope.resIDs);
@@ -64,17 +64,17 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 						if ($scope.qnIDs.indexOf(r.question_id) == -1) {
 							$scope.qnIDs.push(r.question_id);
 							var newRes = {
-									'question': r.question,
+									'question': capitalizeFirstLetter(r.question) + '?',
 									'yes_users': [],
 									'no_users': []
 							}
 							$scope.responses.push(newRes);
 						}
 						var pos = $scope.qnIDs.indexOf(r.question_id);
-						if (r.response == 0) {
-							$scope.responses[pos]['yes_users'].push(r.username);
+						if (r.response != 0) {
+							$scope.responses[pos]['yes_users'].unshift(r.username);
 						} else {
-							$scope.responses[pos]['no_users'].push(r.username);
+							$scope.responses[pos]['no_users'].unshift(r.username);
 						}
 					};
 				}
