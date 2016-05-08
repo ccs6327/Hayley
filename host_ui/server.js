@@ -42,6 +42,12 @@ app.get('/apis/getResponse', function (req, res) {
 	})
 })
 
+app.get('/apis/refreshPage', function (req, res) {
+	console.log("emitting");
+	io.emit('newData');
+	res.send('');
+})
+
 
 // application
 app.get('*', function (req, res) {
