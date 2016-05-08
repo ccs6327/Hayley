@@ -30,14 +30,16 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 			socket.emit('addUser', $scope.userDetail);
 		}
 
-		dbServices.getResponse()
+		//refresh page every 1 second
+		setInterval(function(){ 
+			dbServices.getResponse()
 			.success(function (res) {
 				for (index in res) {
 					var r = res[index];
 					if ($scope.qnIDs.indexOf(r.question_id) == -1) {
 						$scope.qnIDs.push(r.question_id);
 						var newRes = {
-								'question': r.question,
+								'question': capitalizeFirstLetter(r.question) + '?',
 								'yes_users': [],
 								'no_users': []
 						}
@@ -45,10 +47,19 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 					}
 					var pos = $scope.qnIDs.indexOf(r.question_id);
 					if (r.response == 0) {
-						$scope.responses[pos]['yes_users'].push(r.username);
+						if ($scope.responses[pos]['yes_users'].indexOf(r.username) == -1) {
+						    $scope.responses[pos]['yes_users'].push(r.username);
+						}
 					} else {
-						$scope.responses[pos]['no_users'].push(r.username);
+						if ($scope.responses[pos]['no_users'].indexOf(r.username) == -1) {
+						    $scope.responses[pos]['no_users'].push(r.username);
+						}
 					}
 				}
 			})
+		}, 500);
 	})
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
