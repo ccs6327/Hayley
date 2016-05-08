@@ -1,4 +1,36 @@
 
+body {
+	background-color: #00bcd4;
+}
+
+.header {
+	text-align: center;
+	margin: 30px;
+}
+.header .image {
+	display: inline-block;
+	vertical-align: middle;
+	height: 200px;
+}
+.header .text {
+	display: inline-block;
+	vertical-align: middle;
+	color: #ffffff;
+}
+.header .text .title {
+	font-size: 100px;
+}
+.header .text .description {
+	font-size: 25px;
+	color: #b2ebf2;
+}
+
+.new-user-form {
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .answer-card {
 	color: red;
 }

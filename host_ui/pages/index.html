@@ -22,28 +22,26 @@
 	<script type="text/javascript" src="/js/controllers.js"></script> 
 	<script type="text/javascript" src="/js/core.js"></script>
 
+	<script type="text/javascript" src="/scripts/superplaceholder.js"></script>
+
 </head>
 
 <body ng-app='hayley' ng-controller='mainController'>
 	<div class="container">
-		<div class="jumbotron">
-			<h1>Hayley</h1>
-			<h3>your personal RSVP manager</h3>
+		<div class="header">
+			<img class="image" src="/pages/images/HayleyPerson.png"/>
+			<div class="text">
+				<div class="title">Hayley</div>
+				<div class="description">Your Personal RSVP Manager</div>
+			</div>
 		</div>
-		<form class="form-inline" role="form">
-			<label for="name"><h3>Add a new user</h3></label>
-			<br>
-			<div class="form-group">
-				<label for="name">Name:</label>
-				<input type='text' class="form-control" placeholder='name' ng-model="userDetail['name']">
-			</div>
-			<div class="form-group">
-				<label for="name">Phone Number:</label>
-				<input type='text' class="form-control" placeholder='phone number' ng-model="userDetail['phone']">
-			</div>
+		<form class="new-user-form" role="form">
+			<label for="name">Name:</label>
+			<input type='text' class="form-control" placeholder='name' ng-model="userDetail['name']">
+			<label for="name">Phone Number:</label>
+			<input type='text' class="form-control" placeholder='phone number' ng-model="userDetail['phone']">
 			<button class="btn btn-success btn-default" ng-click="addUser()">Submit</button>
 		</form>
-		{{ userDetail }}
 
 		<div class="well well-lg" ng-repeat="res in responses">
 			<h2>{{ res.question }}</h2>
