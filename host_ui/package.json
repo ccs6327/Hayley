@@ -10,6 +10,8 @@
     "morgan"          : "~1.1.1",
     "body-parser"     : "~1.4.3",
     "method-override" : "~2.1.1",
-    "angular-ui-bootstrap"  : "~1.2.5"
+    "angular-ui-bootstrap"  : "~1.2.5",
+    "aws-sdk": ">= 2.0.9",
+    "node-uuid": ">= 1.4.1"
     }
 }
