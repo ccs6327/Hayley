@@ -1,4 +1,93 @@
 
+body {
+	background-color: #00bcd4;
+	color: #212121;
+}
+
+.header {
+	text-align: center;
+	margin: 30px;
+}
+.header .image {
+	display: inline-block;
+	vertical-align: middle;
+	height: 200px;
+}
+.header .text {
+	display: inline-block;
+	vertical-align: middle;
+	color: #ffffff;
+}
+.header .text .title {
+	font-size: 100px;
+}
+.header .text .description {
+	font-size: 25px;
+	color: #b2ebf2;
+}
+
+.new-user-form {
+	width: 300px;
+	margin: 30px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+.new-user-form .text {
+	text-align: center;
+	font-size: 25px;
+	color: #ffffff;
+}
+.new-user-form .form-control {
+	box-shadow: 0px 2px 0px 0px #FF9800, 0px 2px 0px 0px #FF9800;
+	margin: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 300px;
+	border: none;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	font-size: 20px;
+	background-color: #b2ebf2;
+}
+.new-user-form .btn {
+	border: none;
+	outline: none;
+	font-size: 20px;
+	background-color: #FF9800;
+}
+
+.content {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
 .answer-card {
-	color: red;
+	margin: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 400px;
+	height: 350px;
+}
+.answer-card .block {
+	display: inline-block;
+	vertical-align: top;
+	width: 150px;
+}
+.answer-card .block .yes {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 2px 0px 0px green, 0px 2px 0px 0px green;
+}
+.answer-card .block .no {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 2px 0px 0px red, 0px 2px 0px 0px red;
+}
+.answer-card .block .answer {
+	font-size: 23px;
 }

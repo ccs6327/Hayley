@@ -18,6 +18,8 @@
 
 	<script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script> <!-- load bootstrap -->
 
+	<script type="text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 	<script type="text/javascript" src="/js/service.js"></script> 
 	<script type="text/javascript" src="/js/controllers.js"></script> 
 	<script type="text/javascript" src="/js/core.js"></script>
@@ -25,42 +27,33 @@
 </head>
 
 <body ng-app='hayley' ng-controller='mainController'>
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Hayley</h1>
-			<h3>your personal RSVP manager</h3>
+	<div class="header">
+		<img class="image" src="/pages/images/HayleyPerson.png"/>
+		<div class="text">
+			<div class="title">hayley</div>
+			<div class="description">your personal r.s.v.p manager</div>
 		</div>
-		<form class="form-inline" role="form">
-			<label for="name"><h3>Add a new user</h3></label>
-			<br>
-			<div class="form-group">
-				<label for="name">Name:</label>
-				<input type='text' class="form-control" placeholder='name' ng-model="userDetail['name']">
-			</div>
-			<div class="form-group">
-				<label for="name">Phone Number:</label>
-				<input type='text' class="form-control" placeholder='phone number' ng-model="userDetail['phone']">
-			</div>
-			<button class="btn btn-success btn-default" ng-click="addUser()">Submit</button>
-		</form>
-		{{ userDetail }}
+	</div>
+	<form class="new-user-form" role="form">
+		<div class="text">new club member:</div>
+		<input type='text' class="form-control name" placeholder='name' ng-model="userDetail['name']">
+		<input type='text' class="form-control phone" placeholder='phone number' ng-model="userDetail['phone']">
+		<button class="btn btn-success btn-default" ng-click="addUser()">join</button>
+	</form>
 
-		<div class="well well-lg" ng-repeat="res in responses">
+	<div class="content">
+		<div class="well well-lg answer-card" ng-repeat="res in responses">
 			<h2>{{ res.question }}</h2>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 answer-card">
-						<h2>Yes</h2>
-						<div ng-repeat="yes_user in res.yes_users track by $index">
-						{{yes_user}}
-						</div>
-					</div>
-					<div class="col-md-6 answer-card">
-						<h2>No</h2>
-						<div ng-repeat="no_user in res.no_users track by $index">
-							{{no_user}}
-						</div>
-					</div>
+			<div class="block">
+				<h2 class="yes">Yes</h2>
+				<div class="answer" ng-repeat="yes_user in res.yes_users track by $index">
+				{{yes_user}}
+				</div>
+			</div>
+			<div class="block">
+				<h2 class="no">No</h2>
+				<div class="answer" ng-repeat="no_user in res.no_users track by $index">
+					{{no_user}}
 				</div>
 			</div>
 		</div>

@@ -1,17 +1,15 @@
 {
-  "name"         : "hayley",
-  "version"      : "0.0.0",
-  "description"  : "Hayley - your personal RSVP manager",
-  "main"         : "server.js",
-  "author"       : "Hayley",
-  "dependencies" : {
-    "express"    : "~4.7.2",
-    "mysql"         : "~2.10.2",
-    "morgan"          : "~1.1.1",
-    "body-parser"     : "~1.4.3",
-    "method-override" : "~2.1.1",
-    "angular-ui-bootstrap"  : "~1.2.5",
-    "aws-sdk": ">= 2.0.9",
-    "node-uuid": ">= 1.4.1"
-    }
+  "name": "hayley",
+  "version": "0.0.0",
+  "description": "Hayley - your personal RSVP manager",
+  "main": "server.js",
+  "author": "Hayley",
+  "dependencies": {
+    "angular-ui-bootstrap": "~1.2.5",
+    "body-parser": "~1.4.3",
+    "express": "~4.7.2",
+    "method-override": "~2.1.1",
+    "morgan": "~1.1.1",
+    "mysql": "~2.10.2"
+  }
 }
