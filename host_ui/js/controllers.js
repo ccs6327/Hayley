@@ -38,7 +38,7 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 				if ($scope.qnIDs.indexOf(r.question_id) == -1) {
 					$scope.qnIDs.push(r.question_id);
 					var newRes = {
-							'question': r.question,
+							'question': capitalizeFirstLetter(r.question) + '?',
 							'yes_users': [],
 							'no_users': []
 					}
@@ -81,3 +81,7 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 			})
 	})
 })
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
