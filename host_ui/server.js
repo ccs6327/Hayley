@@ -42,16 +42,20 @@ app.get('/apis/getResponse', function (req, res) {
 	})
 })
 
-app.get('/apis/refreshPage', function (req, res) {
-	console.log("emitting");
-	io.emit('newData');
-	res.send('');
-})
+// app.get('/apis/refreshPage', function (req, res) {
+	
+// 	res.send('');
+// })
 
 
 // application
 app.get('*', function (req, res) {
 	res.sendfile(__dirname + '/pages/index.html')
 })
+
+
+setInterval(function() {
+	io.emit('newData');
+}, 1000)
 
 server.listen(port);	

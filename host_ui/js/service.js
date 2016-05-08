@@ -7,7 +7,6 @@ angular.module('hayleyService', [])
 			},
 
 			getResponse : function () {
-				console.log('hello');
 				return $http.get('/apis/getResponse');
 			}
 		}

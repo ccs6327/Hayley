@@ -60,6 +60,7 @@ app.controller('mainController', function ($scope, $http, dbServices, socket) {
 				for (index in res) {
 					var r = res[index];
 					if ($scope.resIDs.indexOf(r.response_id) == -1) {
+						$scope.resIDs.push(r.response_id);
 						if ($scope.qnIDs.indexOf(r.question_id) == -1) {
 							$scope.qnIDs.push(r.question_id);
 							var newRes = {
