@@ -41,21 +41,19 @@
 		<button class="btn btn-success btn-default" ng-click="addUser()">join</button>
 	</form>
 
-	<div class="well well-lg" ng-repeat="res in responses">
-		<h2>{{ res.question }}</h2>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 answer-card">
-					<h2>Yes</h2>
-					<div ng-repeat="yes_user in res.yes_users track by $index">
-					{{yes_user}}
-					</div>
+	<div class="content">
+		<div class="well well-lg answer-card" ng-repeat="res in responses">
+			<h2>{{ res.question }}</h2>
+			<div class="block">
+				<h2 class="yes">Yes</h2>
+				<div class="answer" ng-repeat="yes_user in res.yes_users track by $index">
+				{{yes_user}}
 				</div>
-				<div class="col-md-6 answer-card">
-					<h2>No</h2>
-					<div ng-repeat="no_user in res.no_users track by $index">
-						{{no_user}}
-					</div>
+			</div>
+			<div class="block">
+				<h2 class="no">No</h2>
+				<div class="answer" ng-repeat="no_user in res.no_users track by $index">
+					{{no_user}}
 				</div>
 			</div>
 		</div>
