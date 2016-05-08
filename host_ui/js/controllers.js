@@ -1,5 +1,19 @@
-angular.module('hayleyController', [])
-	.controller('mainController', function ($scope, $http, dbServices) {
+var app = angular.module('hayleyController', []);
+
+app.factory('socket', ['$rootScope', function($rootScope) {
+	var socket = io.connect();
+
+  	return {
+    	on: function(eventName, callback){
+      		socket.on(eventName, callback);
+    	},
+    	emit: function(eventName, data) {
+     		socket.emit(eventName, data);
+    	}
+	};
+}]);
+
+app.controller('mainController', function ($scope, $http, dbServices, socket) {
 		$scope.userDetail = {'name': null, 'phone': null};
 		$scope.qnIDs = [];
 		$scope.responses = [];
@@ -13,6 +27,7 @@ angular.module('hayleyController', [])
 					console.log('error submitting user details: ' + data);
 				});
 			$scope.userDetail = {'name': null, 'phone': null};
+			socket.emit('addUser', $scope.userDetail);
 		}
 
 		dbServices.getResponse()
